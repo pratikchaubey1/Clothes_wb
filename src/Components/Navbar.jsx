@@ -4,15 +4,16 @@ import { FiShoppingBag, FiUser } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 
 
 
 function Navbar() {
   const {
-    isScroll,
+     isScroll,
     logoSize,
+    logoY,
     isOpen,
     setisOpen,
     isSearchOpen,
@@ -22,8 +23,11 @@ function Navbar() {
     dropdownVariants,
     overlayVariants,
     inputVariants,
-    listItemVariants
+    listItemVariants,
   } = useContext(ProductContext);
+
+ const location = useLocation();
+  const isLanding = location.pathname === "/";
 
   const addCart = [];
 
@@ -31,19 +35,29 @@ function Navbar() {
   return (
     <div className="font-poppins bg-white text-gray-900 overflow-x-hidden">
       <motion.div
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
+         className={`fixed top-0 left-0 w-full h-22 z-50 transition-colors duration-500 ${
           isScroll ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto relative px-4 sm:px-6 py-2 sm:py-3 flex justify-center items-center">
           {/* Logo */}
           <Link to="/" className="font-playfair tracking-widest text-gray-600">
-            <motion.h1
-              style={{ fontSize: logoSize }}
-              className="font-playfair tracking-widest text-gray-600 text-center"
-            >
-              Prab
-            </motion.h1>
+           <div className="max-w-7xl mx-auto relative px-4 sm:px-6 py-2 sm:py-3 flex justify-center items-center">
+          {/* Brand Name */}
+          <motion.h1
+             style={
+                isLanding
+                  ? { fontSize: logoSize, y: logoY }
+                  : { fontSize: "2vw", y: 0 }
+              }
+            className="font-serif tracking-widest mt-6 text-gray-900 text-center text-3xl sm:text-6xl lg:text-8xl"
+          >
+            L E V E L
+          </motion.h1>
+
+          {/* Icons */}
+          
+        </div>  
           </Link>
 
           {/* Right Side Icons */}
