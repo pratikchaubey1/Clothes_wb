@@ -53,40 +53,66 @@ function LandingPage() {
   return (
     <div>
       {/* Landing Section */}
-      <div className="bg-[#ceccc7] w-full min-h-screen relative flex items-center justify-center overflow-hidden">
-        {/* Background Image with Animation */}
-        <motion.div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${Background})` }}
-          aria-label="Landing page background"
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1.1 }}
-          transition={{
-            opacity: { duration: 2, ease: "easeOut" },
-            scale: {
-              duration: 15,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            },
-          }}
-        />
+    <div className="bg-[#ceccc7] w-full min-h-screen relative flex items-center justify-center overflow-hidden">
+  {/* Background Image with Animation */}
+  <motion.div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${Background})` }}
+    aria-label="Landing page background"
+    initial={{ opacity: 0, scale: 1 }}
+    animate={{ opacity: 1, scale: 1.1 }}
+    transition={{
+      opacity: { duration: 2, ease: "easeOut" },
+      scale: {
+        duration: 15,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      },
+    }}
+  />
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-          className="absolute bottom-10 sm:bottom-12 flex gap-4 sm:gap-6 font-medium text-sm sm:text-md"
-        >
-          <button className="py-2 px-5 sm:py-3 sm:px-7 bg-transparent hover:bg-black border border-black rounded-md text-black hover:text-white transition duration-300 ease-in-out">
-            Shop Now
-          </button>
-          <button className="py-2 px-5 sm:py-3 sm:px-7 bg-transparent border border-black rounded-md text-black hover:bg-black hover:text-white transition duration-300 ease-in-out">
-            Know More
-          </button>
-        </motion.div>
-      </div>
+  {/* Bottom Content Wrapper with Animation */}
+  <motion.div
+    className="absolute bottom-10 inset-x-0 flex flex-col items-center gap-6 px-4"
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+  >
+    {/* Animated Heading */}
+    <motion.h1
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-black text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      whileHover={{ scale: 1.05 }}
+    >
+      Fashion 2025
+    </motion.h1>
+
+    {/* Animated Buttons */}
+    <motion.div
+      className="flex gap-4 sm:gap-6 font-medium text-sm sm:text-md"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.6 }}
+    >
+      <motion.button
+        className="py-2 px-5 sm:py-3 sm:px-7 bg-transparent border border-black rounded-md text-black transition duration-300 ease-in-out hover:bg-black hover:text-white"
+        whileHover={{ scale: 1.05 }}
+      >
+        Shop Now
+      </motion.button>
+      <motion.button
+        className="py-2 px-5 sm:py-3 sm:px-7 bg-transparent border border-black rounded-md text-black transition duration-300 ease-in-out hover:bg-black hover:text-white"
+        whileHover={{ scale: 1.05 }}
+      >
+        Know More
+      </motion.button>
+    </motion.div>
+  </motion.div>
+</div>
+
 
       {/* Products Section */}
       <div>
@@ -122,15 +148,32 @@ function LandingPage() {
       </div>
 
       {/* Featured Image */}
-      <div className="flex justify-center mt-15 px-4">
-        <div
-          className="w-full sm:max-w-md md:max-w-3xl lg:max-w-5xl h-48 sm:h-56 md:h-64 lg:h-72 bg-center bg-cover rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-          style={{ backgroundImage: `url(${One})` }}
-        ></div>
-      </div>
+    <div className="flex justify-center mt-15 px-4">
+  <div className="relative w-full sm:max-w-md md:max-w-3xl lg:max-w-5xl h-48 sm:h-56 md:h-64 lg:h-72 
+                  transform transition duration-700 hover:scale-105 hover:shadow-2xl animate-fadeInUp">
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-center bg-cover rounded-lg shadow-lg"
+      style={{ backgroundImage: `url(${One})` }}
+    ></div>
+
+    {/* Centered Text + Button */}
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-4">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-black animate-fadeIn">
+        Fashion 2025
+      </h1>
+
+      <button className="py-2 px-6 sm:py-3 sm:px-8 bg-white/20 rounded-md text-black font-medium 
+                         transition duration-300 hover:backdrop-blur-sm hover:bg-white/30 hover:scale-105">
+        SHOP THE NEW COLLECTION
+      </button>
+    </div>
+  </div>
+</div>
+
 
       {/* Featured Section with Video + Text */}
-      <div className="mt-10 px-4 md:px-10 flex flex-col md:flex-row items-center gap-8">
+      <di className="mt-10 px-4 md:px-10 flex flex-col md:flex-row items-center gap-8">
         {/* Left Side Video */}
         <div className="w-100  h-120 md:h-96 relative">
           <video
@@ -164,13 +207,18 @@ function LandingPage() {
             The LEVEL Identity Series
           </h2>
           <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-sans mb-4">
-            A curated exploration of individuality captured for LEVEL, where style becomes a canvas for authentic self-expression, blending fashion with personal stories.
+            A curated exploration of individuality captured for LEVEL, where
+            style becomes a canvas for authentic self-expression, blending
+            fashion with personal stories.
           </p>
           <button className="border border-black py-2 px-4 rounded hover:bg-black hover:text-white transition duration-300">
             Keep Discovering
           </button>
         </div>
-      </div>
+      </di >
+      <div className="">
+        <h1 className="text-3xl font-medium mb-4 text-black text-center mt-5">LEVEL SERVICE</h1>
+        </div>
     </div>
   );
 }
