@@ -7,11 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 
-
-
 function Navbar() {
   const {
-     isScroll,
+    isScroll,
     logoSize,
     logoY,
     isOpen,
@@ -24,40 +22,36 @@ function Navbar() {
     overlayVariants,
     inputVariants,
     listItemVariants,
+    logoX
   } = useContext(ProductContext);
 
- const location = useLocation();
+  const location = useLocation();
   const isLanding = location.pathname === "/";
 
   const addCart = [];
 
-   
   return (
-    <div className="font-poppins bg-white text-gray-900 overflow-x-hidden">
+    <div className="font-poppins bg-white justify-between text-gray-900 overflow-x-hidden">
       <motion.div
-         className={`fixed top-0 left-0 w-full h-22 z-50 transition-colors duration-500 ${
+        className={`fixed top-0 left-0 w-full h-22 z-50 transition-colors duration-500 ${
           isScroll ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto relative px-4 sm:px-6 py-2 sm:py-3 flex justify-center items-center">
           {/* Logo */}
           <Link to="/" className="font-playfair tracking-widest text-gray-600">
-           <div className="max-w-7xl mx-auto relative px-4 sm:px-6 py-2 sm:py-3 flex justify-center items-center">
-          {/* Brand Name */}
-          <motion.h1
-             style={
-                isLanding
-                  ? { fontSize: logoSize, y: logoY }
-                  : { fontSize: "2vw", y: 0 }
-              }
-            className="font-serif tracking-widest mt-6 text-gray-900 text-center text-3xl sm:text-6xl lg:text-8xl"
-          >
-            L E V E L
-          </motion.h1>
-
-          {/* Icons */}
-          
-        </div>  
+            <div className="flex justify-center  items-center">
+              <motion.h1
+                style={
+                  isLanding
+                    ? { fontSize: logoSize, y: logoY , x:logoX }
+                    : { fontSize: "2vw", y: 0 }
+                }
+                className="font-serif tracking-widest mt-7 text-gray-700 text-center"
+              >
+                L E V E L
+              </motion.h1>
+            </div>
           </Link>
 
           {/* Right Side Icons */}
@@ -93,7 +87,7 @@ function Navbar() {
                   animate="visible"
                   exit="exit"
                   variants={dropdownVariants}
-                  className="absolute right-6 top-14 bg-white shadow-lg  rounded-md w-56 h-100 z-50  font-poppins"
+                  className="absolute right-6 top-14 bg-white shadow-lg rounded-md w-56 h-100 z-50 font-poppins"
                 >
                   {[
                     { to: "/signin", text: "SIGN IN" },
@@ -134,7 +128,6 @@ function Navbar() {
                   exit="exit"
                   variants={overlayVariants}
                 >
-                  {/* Top Bar */}
                   <motion.div
                     variants={inputVariants}
                     className="flex items-center w-full border-b px-6 py-4"
@@ -152,7 +145,6 @@ function Navbar() {
                     </button>
                   </motion.div>
 
-                  {/* Suggestions */}
                   <div className="grid grid-cols-3 gap-8 p-8 text-gray-800">
                     {[
                       {
@@ -202,7 +194,6 @@ function Navbar() {
                 <MdMenu className="text-2xl" />
               </button>
 
-              {/* Sidebar */}
               <div
                 className={`fixed top-0 right-0 h-full w-[400px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
                   isOpen ? "translate-x-0" : "translate-x-full"
@@ -221,7 +212,6 @@ function Navbar() {
                 </nav>
               </div>
 
-              {/* Overlay */}
               {isOpen && (
                 <div
                   className="fixed inset-0 bg-black/50 z-40"

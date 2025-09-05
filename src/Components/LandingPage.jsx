@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Background from "../assets/BackGround.png";
+import One from "../assets/One.png";
+import Two from "../assets/Main.mp4";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
 
 function LandingPage() {
   const products = [
@@ -27,6 +30,26 @@ function LandingPage() {
     },
   ];
 
+  // Video control states
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
   return (
     <div>
       {/* Landing Section */}
@@ -40,7 +63,12 @@ function LandingPage() {
           animate={{ opacity: 1, scale: 1.1 }}
           transition={{
             opacity: { duration: 2, ease: "easeOut" },
-            scale: { duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
+            scale: {
+              duration: 15,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            },
           }}
         />
 
@@ -76,23 +104,71 @@ function LandingPage() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
+              className="bg-white overflow-hidden cursor-pointer"
             >
               <Link to={item.to}>
-                {/* Product Image */}
                 <img
                   src={item.Img}
                   alt={item.Name}
                   className="w-full h-72 object-cover"
                 />
-
-                {/* Title */}
                 <h1 className="text-xl font-semibold text-black text-center py-3">
                   {item.Name}
                 </h1>
               </Link>
             </motion.div>
           ))}
+        </div>
+      </div>
+
+      {/* Featured Image */}
+      <div className="flex justify-center mt-15 px-4">
+        <div
+          className="w-full sm:max-w-md md:max-w-3xl lg:max-w-5xl h-48 sm:h-56 md:h-64 lg:h-72 bg-center bg-cover rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+          style={{ backgroundImage: `url(${One})` }}
+        ></div>
+      </div>
+
+      {/* Featured Section with Video + Text */}
+      <div className="mt-10 px-4 md:px-10 flex flex-col md:flex-row items-center gap-8">
+        {/* Left Side Video */}
+        <div className="w-100  h-120 md:h-96 relative">
+          <video
+            ref={videoRef}
+            src={Two}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover  shadow-2xl"
+          />
+          {/* Controls */}
+          <div className="absolute top-2 right-2 flex gap-2">
+            <button
+              onClick={togglePlay}
+              className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-black hover:bg-gray-300"
+            >
+              {isPlaying ? <FaPause size={12} /> : <FaPlay size={12} />}
+            </button>
+            <button
+              onClick={toggleMute}
+              className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-black hover:bg-gray-300"
+            >
+              {isMuted ? <FaVolumeMute size={12} /> : <FaVolumeUp size={12} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Right Side Text */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 text-gray-900">
+            The LEVEL Identity Series
+          </h2>
+          <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-sans mb-4">
+            A curated exploration of individuality captured for LEVEL, where style becomes a canvas for authentic self-expression, blending fashion with personal stories.
+          </p>
+          <button className="border border-black py-2 px-4 rounded hover:bg-black hover:text-white transition duration-300">
+            Keep Discovering
+          </button>
         </div>
       </div>
     </div>

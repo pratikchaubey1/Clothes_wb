@@ -1,19 +1,36 @@
 import { useScroll, useTransform } from "framer-motion";
 import React, { createContext, useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setisOpen] = useState(false);
+  
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-
+  const isDesktop = useMediaQuery({ minWidth: 1024 }); 
   const { scrollY } = useScroll();
 
   // Logo size & position (for landing page only)
-  const logoSize = useTransform(scrollY, [0, 600], ["18vw", "-2vw"]);
-  const logoY = useTransform(scrollY, [0, 600], ["0vh", "-10vh"]);
+const logoSize = useTransform(
+  scrollY,
+  [0, 200],
+  isDesktop ? ["10vw", "5vw"] : ["16vw", "8vw"]
+);
+
+const logoY = useTransform(
+  scrollY,
+  [0, 200],
+  isDesktop ? ["0vh", "-8vh"] : ["0vh", "-6vh"]
+);
+
+const logoX = useTransform(
+  scrollY,
+  [0, 200],
+  ["0vw", isDesktop ? "0vw" : "-18vw"]
+);
 
   useEffect(() => {
     const handleScroll = () => setIsScroll(window.scrollY > 50);
@@ -49,7 +66,7 @@ export const ProductProvider = ({ children }) => {
     }),
   };
 
-   const Sceekers = [ 
+   const [Sceekers,setSceekers] = useState([ 
       {Name: "Nike Air One" ,Price:15000 , Img:"https://i.pinimg.com/1200x/7f/86/0e/7f860e2f259fb5518a82f65aaa79d413.jpg"},
       {Name:"Nike Air Jordan" , Price:18000 ,Img:"https://i.pinimg.com/736x/f4/7f/fd/f47ffd0542531b6e54608d900a46b799.jpg"},
       {Name:"Nike Air Force" , Price:17000 ,Img:"https://i.pinimg.com/736x/62/a6/fe/62a6feaec1a4cc73050dd2de58280b08.jpg"},
@@ -69,7 +86,7 @@ export const ProductProvider = ({ children }) => {
       {Name:"Nike Air Zoom Pegasus" , Price:18500 ,Img:"https://i.pinimg.com/1200x/94/0d/a0/940da0c0b86bd67f9027144e7e424559.jpg"},
       {Name:"Nike Air Zoom TerraKnee" , Price:18000 ,Img:"https://i.pinimg.com/1200x/28/4a/f9/284af9939d3d1d81451e664501af827d.jpg"},
       {Name:"Nike Air Zoom Tempo" , Price:19000 ,Img:"https://i.pinimg.com/736x/df/2b/4f/df2b4f386f6aba7696b0f4f8d163d5b1.jpg"},
-    ]
+    ]) ;
      console.log(Sceekers);
      
 
@@ -88,7 +105,9 @@ export const ProductProvider = ({ children }) => {
     overlayVariants,
     inputVariants,
     listItemVariants,
-    Sceekers
+    Sceekers,
+    setSceekers,
+    logoX
   };
 
   return (
