@@ -10,8 +10,11 @@ function Sneaker() {
       <h1 className="text-left bg-gray-100 px-2 gap-2 text-xl flex  font-mono mt-20">
         Sneaker 
       </h1>
-      <div></div>
-    </div>
+      
+        </div>
+           
+      
+    
   );
 }
 

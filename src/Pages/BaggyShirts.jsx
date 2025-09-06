@@ -2,7 +2,9 @@ import React from 'react'
 
 function BaggyShirts() {
   return (
-    <div>BaggyShirts</div>
+     <h1 className="text-left bg-gray-100 px-2 gap-2 text-xl flex  font-mono mt-20">
+        Shirts
+      </h1>
   )
 }
 
