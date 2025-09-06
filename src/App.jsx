@@ -8,6 +8,7 @@ import Bag from './Pages/Bag';
 import BaggyShirts from './Pages/BaggyShirts';
 import BaggyJeans from './Pages/BaggyJeans';
 import Maincard from './Pages/Maincard';
+import Cart from './Pages/Cart';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/baggyshirt" element={<BaggyShirts />} />
         <Route path="/baggyjeans" element={<BaggyJeans />} />
         <Route path="/maincard" element={<Maincard />} />
+        <Route path='/Contact' element={<Contact/>}/>
+        <Route path='/Cart' element={<Cart/>}/>
       </Routes>
     </>
   );

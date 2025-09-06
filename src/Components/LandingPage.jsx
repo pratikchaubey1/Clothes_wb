@@ -41,7 +41,7 @@ function LandingPage() {
       Img: ServiceOne,
       to: "/serviceOne",
       description:
-        "At LEVEL, clothing quality means more than fabric—it’s the promise of comfort, durability, and timeless style. Each piece is crafted with premium materials and careful attention to detail" 
+        "At LEVEL, clothing quality means more than fabric—it’s the promise of comfort, durability, and timeless style. Each piece is crafted with premium materials and careful attention to detail",
     },
     {
       Name: "Sneaker Fashion",
@@ -143,14 +143,21 @@ function LandingPage() {
 
       {/* Products Section */}
       <div>
-        <h1 className="text-3xl font-medium mb-4 text-black text-center mt-5">
-          EXPLORE THE LATEST STYLES
-        </h1>
-        <div className="mt-5 px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <motion.div
+          className="mt-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <h1 className="text-3xl font-medium mb-4 text-black text-center mt-5">
+            EXPLORE THE LATEST STYLES
+          </h1>
+        </motion.div>
+        <div className="mt-7 px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((item, index) => (
             <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -250,11 +257,17 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className="">
-        <h1 className="text-3xl font-medium mb-4 text-black text-center mt-5">
+      <motion.div
+        className="mt-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <h1 className="text-3xl font-medium mb-4 text-black text-center">
           LEVEL SERVICE
         </h1>
-      </div>
+      </motion.div>
 
       <div className="mt-10 px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         {service.map((item, index) => {
@@ -327,6 +340,26 @@ function LandingPage() {
             </div>
           );
         })}
+      </div>
+      <div className="bg-black mt-20 text-white h-screen">
+        <h1 className="text-xl py-20 font-medium text-center">
+          SIGN UP FOR LEVEL UPDATES
+        </h1>
+        <p className="text-2xl  font-semibold text-center ">
+          Get exclusive updates on the collection's launch,
+        </p>
+        <p className="text-2xl  font-semibold text-center ">
+          {" "}
+          personalized communication and the House's latest news.
+        </p>
+        <Link to="/Contact">
+          <h2 className="text-xl py-20 font-medium text-center"> +Contact</h2>
+        </Link>
+
+        <h1 className=" text-9xl font-sans text-center ">L E V E L</h1>
+        <p class="text-center bg-black py-4 text-sm text-gray-600">
+          Developed by <span class="font-medium">Prab Only</span>
+        </p>
       </div>
     </div>
   );

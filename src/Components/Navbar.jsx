@@ -59,7 +59,7 @@ function Navbar() {
             {/* Cart */}
             <div className="relative flex items-center">
               <Link
-                to="/cart"
+                to="/Cart"
                 className="hover:text-red-700 transition-all duration-300 border-b-2 border-transparent hover:border-red-700"
               >
                 <FiShoppingBag className="text-2xl" />
