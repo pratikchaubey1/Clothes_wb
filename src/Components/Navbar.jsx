@@ -22,7 +22,7 @@ function Navbar() {
     overlayVariants,
     inputVariants,
     listItemVariants,
-    logoX
+    logoX,
   } = useContext(ProductContext);
 
   const location = useLocation();
@@ -44,7 +44,7 @@ function Navbar() {
               <motion.h1
                 style={
                   isLanding
-                    ? { fontSize: logoSize, y: logoY , x:logoX }
+                    ? { fontSize: logoSize, y: logoY, x: logoX }
                     : { fontSize: "2vw", y: 0 }
                 }
                 className="font-serif tracking-widest mt-7 text-gray-700 text-center"
@@ -149,7 +149,11 @@ function Navbar() {
                     {[
                       {
                         title: "TRENDING SEARCHES",
-                        items: ["Handbags", "Shoes", "Belts", "Bags"],
+                        items: [
+                          { name: "Sneakers", link: "/sneaker" },
+                          { name: "Bags", link: "/bag" },
+                          // Add more items here if needed
+                        ],
                       },
                       { title: "NEW IN", items: ["Women", "Men"] },
                       {
@@ -172,9 +176,19 @@ function Navbar() {
                               animate="visible"
                               variants={listItemVariants}
                             >
-                              <a href="#" className="hover:underline">
-                                {item}
-                              </a>
+                              {section.title === "TRENDING SEARCHES" ? (
+                                <Link
+                                  to={item.link}
+                                  className="hover:underline"
+                                  onClick={() => setIsSearchOpen(false)}
+                                >
+                                  {item.name}
+                                </Link>
+                              ) : (
+                                <a href="#" className="hover:underline">
+                                  {item}
+                                </a>
+                              )}
                             </motion.li>
                           ))}
                         </ul>

@@ -23,7 +23,6 @@ function Bag() {
       {/* Products Grid */}
       <div className="bg-white mt-10 px-4 sm:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          
           {/* First 8 cards */}
           {bag.slice(0, 8).map((item, index) => (
             <div
@@ -31,7 +30,7 @@ function Bag() {
               onClick={() => setbag(item)}
               className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
             >
-              <div className="relative h-80 sm:h-60 md:h-60 w-full">
+              <div className="relative h-96 sm:h-80 md:h-80 w-full">
                 <img
                   src={item.Img}
                   alt={item.Name}
@@ -42,8 +41,12 @@ function Bag() {
                 </span>
               </div>
               <div className="p-3 text-left">
-                <h1 className="text-gray-900 text-sm font-medium">{item.Name}</h1>
-                <h2 className="text-gray-700 text-sm font-semibold mt-1">{item.Price}</h2>
+                <h1 className="text-gray-900 text-sm font-medium">
+                  {item.Name}
+                </h1>
+                <h2 className="text-gray-700 text-sm font-semibold mt-1">
+                 $ {item.Price}
+                </h2>
               </div>
             </div>
           ))}
@@ -51,7 +54,7 @@ function Bag() {
           {/* Middle Section → 1 Big Image + 2 Cards */}
           <div className="col-span-1 md:col-span-4 flex flex-col md:flex-row gap-6 items-stretch mt-10">
             {/* Left Side Big Image */}
-            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[600px]">
+            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[850px]">
               <img
                 src="https://i.pinimg.com/1200x/11/cc/4e/11cc4e336d6921cad883492d57a3e192.jpg"
                 alt="Special"
@@ -67,7 +70,7 @@ function Bag() {
                   onClick={() => setbag(item)}
                   className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
                 >
-                  <div className="relative h-80 sm:h-60 md:h-60 w-full">
+                  <div className="relative h-96 sm:h-80 md:h-80 w-full">
                     <img
                       src={item.Img}
                       alt={item.Name}
@@ -78,8 +81,12 @@ function Bag() {
                     </span>
                   </div>
                   <div className="p-3 text-left">
-                    <h1 className="text-gray-900 text-sm font-medium">{item.Name}</h1>
-                    <h2 className="text-gray-700 text-sm font-semibold mt-1">{item.Price}</h2>
+                    <h1 className="text-gray-900 text-sm font-medium">
+                      {item.Name}
+                    </h1>
+                    <h2 className="text-gray-700 text-sm font-semibold mt-1">
+                     $ {item.Price}
+                    </h2>
                   </div>
                 </div>
               ))}
@@ -93,7 +100,7 @@ function Bag() {
               onClick={() => setbag(item)}
               className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
             >
-              <div className="relative h-80 sm:h-60 md:h-60 w-full">
+              <div className="relative h-96 sm:h-80 md:h-80 w-full">
                 <img
                   src={item.Img}
                   alt={item.Name}
@@ -104,12 +111,15 @@ function Bag() {
                 </span>
               </div>
               <div className="p-3 text-left">
-                <h1 className="text-gray-900 text-sm font-medium">{item.Name}</h1>
-                <h2 className="text-gray-700 text-sm font-semibold mt-1">{item.Price}</h2>
+                <h1 className="text-gray-900 text-sm font-medium">
+                  {item.Name}
+                </h1>
+                <h2 className="text-gray-700 text-sm font-semibold mt-1">
+                  $ {item.Price}
+                </h2>
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </div>

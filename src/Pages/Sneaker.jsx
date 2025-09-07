@@ -9,11 +9,9 @@ function Sneaker() {
     <div>
       {/* Heading */}
       {/* Heading with item count */}
-<h1 className="flex justify-between  items-center bg-gray-100 px-4 py-2 mt-20 text-xl font-mono">
-  <span>Sneaker</span>
-  <span className="text-sm  text-gray-600">{Sceekers.length} items</span>
-</h1>
-
+      <h1 className="bg-gray-100 px-4 py-2 mt-20 text-xl font-mono flex items-center gap-2">
+        Sneaker <span className="text-sm text-gray-600">({Sceekers.length} items)</span>
+      </h1>
 
       {/* Top Image Banner */}
       <div className="w-full h-64 sm:h-80 md:h-[400px] mt-3 relative flex items-center justify-center overflow-hidden">
@@ -33,19 +31,23 @@ function Sneaker() {
               onClick={() => setSceekers(item)}
               className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-outmx-auto w-[90%] sm:w-full"
             >
-              <div className="relative h-72 sm:h-60 md:h-60 w-full">
+              <div className="relative h-96 sm:h-80 md:h-80 w-full">
                 <img
                   src={item.Img}
-                  alt="photo"
+                  alt={item.Name}
                   className="w-full h-full object-cover"
                 />
-                <span className="absolute top-2 left-2 bg-black text-white text-[10px] tracking-wide px-2 py-0.5 uppercase">
+                <span className="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-0.5 uppercase">
                   New
                 </span>
               </div>
               <div className="p-3 text-left">
-                <h1 className="text-gray-900 text-sm font-medium">{item.Name}</h1>
-                <h2 className="text-gray-700 text-sm font-semibold mt-1">{item.Price}</h2>
+                <h1 className="text-gray-900 text-sm font-medium">
+                  {item.Name}
+                </h1>
+                <h2 className="text-gray-700 text-sm font-semibold mt-1">
+                 $ {item.Price}
+                </h2>
               </div>
             </div>
           ))}
@@ -69,19 +71,23 @@ function Sneaker() {
                   onClick={() => setSceekers(item)}
                   className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
                 >
-                  <div className="relative h-72 sm:h-60 md:h-60 w-full">
+                  <div className="relative h-96 sm:h-80 md:h-80 w-full">
                     <img
                       src={item.Img}
-                      alt="photo"
+                      alt={item.Name}
                       className="w-full h-full object-cover"
                     />
-                    <span className="absolute top-2 left-2 bg-black text-white text-[10px] tracking-wide px-2 py-0.5 uppercase">
+                    <span className="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-0.5 uppercase">
                       New
                     </span>
                   </div>
                   <div className="p-3 text-left">
-                    <h1 className="text-gray-900 text-sm font-medium">{item.Name}</h1>
-                    <h2 className="text-gray-700 text-sm font-semibold mt-1">{item.Price}</h2>
+                    <h1 className="text-gray-900 text-sm font-medium">
+                      {item.Name}
+                    </h1>
+                    <h2 className="text-gray-700 text-sm font-semibold mt-1">
+                     $ {item.Price}
+                    </h2>
                   </div>
                 </div>
               ))}
@@ -95,19 +101,23 @@ function Sneaker() {
               onClick={() => setSceekers(item)}
               className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
             >
-              <div className="relative h-72 sm:h-60 md:h-60 w-full">
+              <div className="relative h-96 sm:h-80 md:h-80 w-full">
                 <img
                   src={item.Img}
-                  alt="photo"
+                  alt={item.Name}
                   className="w-full h-full object-cover"
                 />
-                <span className="absolute top-2 left-2 bg-black text-white text-[10px] tracking-wide px-2 py-0.5 uppercase">
+                <span className="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-0.5 uppercase">
                   New
                 </span>
               </div>
               <div className="p-3 text-left">
-                <h1 className="text-gray-900 text-sm font-medium">{item.Name}</h1>
-                <h2 className="text-gray-700 text-sm font-semibold mt-1">{item.Price}</h2>
+                <h1 className="text-gray-900 text-sm font-medium">
+                  {item.Name}
+                </h1>
+                <h2 className="text-gray-700 text-sm font-semibold mt-1">
+                 $ {item.Price}
+                </h2>
               </div>
             </div>
           ))}
