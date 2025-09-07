@@ -341,26 +341,7 @@ function LandingPage() {
           );
         })}
       </div>
-      <div className="bg-black mt-20 text-white h-screen">
-        <h1 className="text-xl py-20 font-medium text-center">
-          SIGN UP FOR LEVEL UPDATES
-        </h1>
-        <p className="text-2xl  font-semibold text-center ">
-          Get exclusive updates on the collection's launch,
-        </p>
-        <p className="text-2xl  font-semibold text-center ">
-          {" "}
-          personalized communication and the House's latest news.
-        </p>
-        <Link to="/Contact">
-          <h2 className="text-xl py-20 font-medium text-center"> +Contact</h2>
-        </Link>
-
-        <h1 className=" text-9xl font-sans text-center ">L E V E L</h1>
-        <p class="text-center bg-black py-4 text-sm text-gray-600">
-          Developed by <span class="font-medium">Prab Only</span>
-        </p>
-      </div>
+   
     </div>
   );
 }

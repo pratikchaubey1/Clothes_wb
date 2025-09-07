@@ -73,10 +73,10 @@ const logoX = useTransform(
       {Name:"Nike Air Max" , Price:16000 ,Img:"https://i.pinimg.com/1200x/78/be/38/78be386b31f6df0cd73f99e694d5ff15.jpg"},
       {Name:"Nike Air Zoom" , Price:19000 ,Img:"https://i.pinimg.com/736x/b4/fb/da/b4fbdaa7eb8e7e21c96de5e1ee4e11ac.jpg"},
       {Name:"Nike Air Presto" , Price:17500 ,Img:"https://i.pinimg.com/736x/87/f1/39/87f139592ff8e9a638ddc84deaf7aa3d.jpg"},
-      {Name:"Nike Air VaporMax" , Price:20000 ,Img:""},
+      {Name:"Nike Air VaporMax" , Price:20000 ,Img:"https://i.pinimg.com/736x/0a/d8/0d/0ad80d5f1c5a75d92e1dc0027c968389.jpg"},
       {Name:"Nike Air Zoom Pegasus" , Price:18500 ,Img:"https://i.pinimg.com/1200x/f4/ce/86/f4ce86b9b0c18bf938aee7a7916f396c.jpg"},
-      {Name:"Nike Air Zoom SuperRep" , Price:19500 ,Img:"https://i.pinimg.com/1200x/cb/42/e4/cb42e4a8826301fa318bf6e37f6ebce7.jpg"},
-      {Name:"Nike Air Zoom TerraKnee" , Price:18000 ,Img:"https://i.pinimg.com/736x/23/8d/63/238d63d2587dbbad70fed834edf1468e.jpg"},
+      {Name:"Nike Air Zoom SuperRep" , Price:19500 ,Img:"https://i.pinimg.com/1200x/75/01/e3/7501e31723ce76288090bdfc80df882e.jpg"},
+      {Name:"Nike Air Zoom TerraKnee" , Price:18000 ,Img:"https://i.pinimg.com/1200x/ad/13/7f/ad137fa92f9fdd519d9341359fb84458.jpg"},
       {Name:"Nike Air Zoom Tempo" , Price:19000 ,Img:"https://i.pinimg.com/1200x/03/56/7d/03567d078b2f7a626b9259b3dc3f70f9.jpg"},
       {Name:"Nike Air Zoom Fly" , Price:17500 ,Img:"https://i.pinimg.com/1200x/86/0f/76/860f767ccf9142e56d9edc498863ef4c.jpg"},
       {Name:"Nike Air Zoom Pegasus" , Price:18500 ,Img:"https://i.pinimg.com/1200x/67/87/7d/67877d71b4f2811d5d88c6912a5098b4.jpg"},
@@ -87,7 +87,27 @@ const logoX = useTransform(
       {Name:"Nike Air Zoom TerraKnee" , Price:18000 ,Img:"https://i.pinimg.com/1200x/28/4a/f9/284af9939d3d1d81451e664501af827d.jpg"},
       {Name:"Nike Air Zoom Tempo" , Price:19000 ,Img:"https://i.pinimg.com/736x/df/2b/4f/df2b4f386f6aba7696b0f4f8d163d5b1.jpg"},
     ]) ;
-     console.log(Sceekers);
+     const [bag,setbag] = useState([
+      {Name: "Altares Baguette Cowhide Brown",Price:4000,Img:"https://i.pinimg.com/1200x/b1/23/8e/b1238eecbfcada90d5888db30c0cb4af.jpg"},
+      {Name:"Vintage Dior brown ",Price:2000,Img:"https://i.pinimg.com/736x/39/87/bd/3987bd69945f5b95e0fe84ca46893e93.jpg"},
+      {Name:"vintage dior denim cargo shoulder bag",Price:20000,Img:"https://i.pinimg.com/1200x/6c/f2/2e/6cf22e4f20b7f2449d93594f186b7d83.jpg"},
+      {Name:"Cambon Reporter Purse ",Price:1000,Img:"https://i.pinimg.com/736x/e8/06/bd/e806bdf68218a667733627f222849522.jpg"},
+      {Name:"Lv air Bag",Price:20000,Img:"https://i.pinimg.com/1200x/78/66/0f/78660f47160ff814665b3486ae621868.jpg"},
+      {Name:"Lv Real",Price:10000,Img:"https://i.pinimg.com/736x/1b/04/41/1b04416fd9a244780ee97a80ae80d8dc.jpg"},
+      {Name:"Lv cherry",Price:5000,Img:"https://i.pinimg.com/1200x/ea/70/73/ea7073770ce960b1dfaa17fd07626d0a.jpg"},
+      {Name:"Lv Jens ",Price:3000,Img:"https://i.pinimg.com/736x/7b/cb/e5/7bcbe5e20249a983ad27a8de18a737cd.jpg"},
+      {Name:"Lv green Role",Price:20000,Img:"https://i.pinimg.com/1200x/87/73/7d/87737d93a95a7bfa5e5cb36cc91fa234.jpg"},
+      {Name:"Lv Stone",Price:5000,Img:"https://i.pinimg.com/736x/60/52/2a/60522a11da57a05acbe9bb5f0174d8fe.jpg"},
+      {Name:"Lv Sea ",Price:800,Img:"https://i.pinimg.com/1200x/42/ce/21/42ce217af6f1bd1c78043a39adc0d568.jpg"},
+      {Name:"Guuci One Day",Price:2000,Img:"https://i.pinimg.com/1200x/53/e4/78/53e478cfe0bde6495b4ed9de0ebc07df.jpg"},
+      {Name:"Level Pinki",Price:3000,Img:"https://i.pinimg.com/1200x/d7/de/b5/d7deb5a496f1114f2a883750687f0b87.jpg"},
+      {Name:"Level Office",Price:9000,Img:"https://i.pinimg.com/736x/f6/5a/b5/f65ab5911f885e386cf992d94aae126b.jpg"},
+      {Name:"Moschino",Price:11000,Img:"https://i.pinimg.com/1200x/57/6e/b4/576eb418d39e8d99b870184ab6c30b7f.jpg"},
+      {Name:"Moschino Spice",Price:12000,Img:"https://i.pinimg.com/1200x/52/4c/a0/524ca08423ace2ea429277e22c521c37.jpg"},
+      {Name:"Moschino CowGirl",Price:230000,Img:"https://i.pinimg.com/1200x/ea/ad/62/eaad626de99d2f490da9c7c22373d949.jpg"},
+      {Name:"Moschino Rj",Price:1000,Img:"https://i.pinimg.com/736x/b6/07/1b/b6071b8540840c1891bce7b030de29a8.jpg"},
+
+     ]);
      
 
   const value = {
@@ -107,7 +127,8 @@ const logoX = useTransform(
     listItemVariants,
     Sceekers,
     setSceekers,
-    logoX
+    logoX,
+    bag,setbag
   };
 
   return (
