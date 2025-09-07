@@ -23,6 +23,7 @@ function Navbar() {
     inputVariants,
     listItemVariants,
     logoX,
+    scrolled,
   } = useContext(ProductContext);
 
   const location = useLocation();
@@ -39,15 +40,17 @@ function Navbar() {
       >
         <div className="max-w-7xl mx-auto relative px-4 sm:px-6 py-2 sm:py-3 flex justify-center items-center">
           {/* Logo */}
-          <Link to="/" className="font-playfair tracking-widest text-gray-600">
-            <div className="flex justify-center  items-center">
+          <Link to="/" className="font-playfair tracking-widest">
+            <div className="flex justify-center items-center">
               <motion.h1
                 style={
                   isLanding
                     ? { fontSize: logoSize, y: logoY, x: logoX }
                     : { fontSize: "2vw", y: 0 }
                 }
-                className="font-serif tracking-widest mt-7 text-gray-700 text-center"
+                className={`font-serif tracking-widest mt-7 text-center transition-colors duration-500 ${
+                  isScroll ? "text-gray-900" : "text-gray-100"
+                }`}
               >
                 L E V E L
               </motion.h1>
@@ -152,6 +155,8 @@ function Navbar() {
                         items: [
                           { name: "Sneakers", link: "/sneaker" },
                           { name: "Bags", link: "/bag" },
+                          { name: "Shirts", link: "/BaggyShirt" },
+                          { name: "Jeans", link: "/BaggyJeans" },
                           // Add more items here if needed
                         ],
                       },

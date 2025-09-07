@@ -51,9 +51,9 @@ function BaggyJeans() {
           {/* Middle Section → 1 Big Image + 2 Cards */}
           <div className="col-span-1 md:col-span-4 flex flex-col md:flex-row gap-6 items-stretch mt-10">
             {/* Left Side Big Image */}
-            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[850px]">
+            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[950px]">
               <img
-                src="https://i.pinimg.com/736x/e5/19/05/e51905218001bdb106ebb7a026626bdf.jpg"
+                src="https://i.pinimg.com/736x/bb/9c/32/bb9c323a89fee4978bcf52901d172557.jpg"
                 alt="Special"
                 className="w-full h-full object-cover"
               />
@@ -65,9 +65,9 @@ function BaggyJeans() {
                 <div
                   key={index}
                   onClick={() => setbag(item)}
-                  className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
+                  className="bg-white overflow-hidden mt-8 hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
                 >
-                  <div className="relative h-96 sm:h-80 md:h-80 w-full">
+                  <div className="relative h-96 sm:h-80 md:h-100 w-full">
                     <img
                       src={item.Img}
                       alt={item.Name}

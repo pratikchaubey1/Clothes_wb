@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from '../assets/Logo.svg'
 
 function Footer() {
   return (
@@ -25,14 +26,14 @@ function Footer() {
           </h2>
         </Link>
       </div>
-
+    
       {/* LEVEL Title */}
       <h1 className="text-5xl sm:text-7xl md:text-9xl font-sans text-center my-10">
         L E V E L
       </h1>
 
       {/* Developer Credit */}
-      <p className="text-center bg-black py-4 text-sm sm:text-base text-gray-600">
+      <p className="text-center bg-black  text-sm sm:text-base text-gray-600">
         Developed by <span className="font-medium">Prab Only</span>
       </p>
     </div>

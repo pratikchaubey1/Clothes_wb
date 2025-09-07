@@ -55,7 +55,7 @@ function Sneaker() {
           {/* Middle Section → 1 Big Image + 2 Cards */}
           <div className="col-span-1 md:col-span-4 flex flex-col md:flex-row gap-6 items-stretch mt-10">
             {/* Left Side Big Image */}
-            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[600px]">
+            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[950px]">
               <img
                 src="https://i.pinimg.com/1200x/9a/ee/aa/9aeeaa8d3891381d6cc1542b6589c47d.jpg"
                 alt="Special"
@@ -69,9 +69,9 @@ function Sneaker() {
                 <div
                   key={index}
                   onClick={() => setSceekers(item)}
-                  className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
+                  className="bg-white overflow-hidden mt-8 hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
                 >
-                  <div className="relative h-96 sm:h-80 md:h-80 w-full">
+                  <div className="relative h-96 sm:h-80 md:h-100 w-full">
                     <img
                       src={item.Img}
                       alt={item.Name}

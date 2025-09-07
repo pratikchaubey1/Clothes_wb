@@ -54,7 +54,7 @@ function Bag() {
           {/* Middle Section → 1 Big Image + 2 Cards */}
           <div className="col-span-1 md:col-span-4 flex flex-col md:flex-row gap-6 items-stretch mt-10">
             {/* Left Side Big Image */}
-            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[850px]">
+            <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[950px]">
               <img
                 src="https://i.pinimg.com/1200x/11/cc/4e/11cc4e336d6921cad883492d57a3e192.jpg"
                 alt="Special"
@@ -68,9 +68,9 @@ function Bag() {
                 <div
                   key={index}
                   onClick={() => setbag(item)}
-                  className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
+                  className="bg-white overflow-hidden mt-8 hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
                 >
-                  <div className="relative h-96 sm:h-80 md:h-80 w-full">
+                  <div className="relative h-96 sm:h-80 md:h-100 w-full">
                     <img
                       src={item.Img}
                       alt={item.Name}

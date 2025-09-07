@@ -7,6 +7,7 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
   const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setisOpen] = useState(false);
+   const [scrolled, setScrolled] = useState(false);
   
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -122,7 +123,7 @@ const logoX = useTransform(
   { id: 9, Name: "Black Baggy Jeans", Price: "1100", Img: "https://i.pinimg.com/1200x/0f/59/1b/0f591b7ffa17a0bb83e301d2272e892d.jpg" },
   { id: 10, Name: "Distressed Baggy Jeans", Price: "3000", Img: "https://i.pinimg.com/736x/95/00/37/95003763fa714d93ee638d9a21ca784d.jpg" },
   { id: 11, Name: "Retro Baggy Jeans", Price: "890", Img: "https://i.pinimg.com/1200x/c6/c0/47/c6c047759ea7c016afd88a4ce774c809.jpg" },
-  { id: 12, Name: "High Waist Baggy Jeans", Price: "220", Img: "https://i.pinimg.com/736x/34/7c/15/347c156250254580cc3d6b9af34a2d07.jpg" },
+  { id: 12, Name: "High Waist Baggy Jeans", Price: "220", Img: "https://i.pinimg.com/736x/6e/86/07/6e8607cf7487c637df93b253bf976f33.jpg" },
   { id: 13, Name: "Urban Baggy Jeans", Price: "559", Img: "https://i.pinimg.com/736x/16/11/1d/16111d54247c8611d164d3d9145ffe2b.jpg" },
   { id: 14, Name: "Designer Baggy Jeans", Price: "973", Img: "https://i.pinimg.com/1200x/db/70/a6/db70a6dd653ee2e96ee748e7b1846083.jpg" },
   { id: 15, Name: "Everyday Baggy Jeans", Price: "2356", Img: "https://i.pinimg.com/736x/07/6d/a6/076da6f3d10967f48850104fda8aafa7.jpg" },
@@ -137,12 +138,12 @@ const logoX = useTransform(
      const [shirt, setshirts] = useState([
   { id: 1, Name: "Zara Slim Fit Shirt", Price: "4546", Img: "https://i.pinimg.com/736x/37/c5/d6/37c5d63581fd7d56d0a8b2ce0e7d3cda.jpg" },
   { id: 2, Name: "H&M Casual Cotton Shirt", Price: "234", Img: "https://i.pinimg.com/736x/bc/45/7a/bc457abda45f57279d166252b44f87de.jpg" },
-  { id: 3, Name: "Levi’s Denim Shirt", Price: "4556", Img: "https://i.pinimg.com/1200x/5e/f7/64/5ef764376f2ec613b7dc2671edbefa0d.jpg" },
+  { id: 3, Name: "Levi’s Denim Shirt", Price: "4556", Img: "https://i.pinimg.com/736x/3e/93/f7/3e93f7f1eb46622df5decee101f98fa8.jpg" },
   { id: 4, Name: "Gucci Luxury Printed Shirt", Price: "133", Img: "https://i.pinimg.com/1200x/dc/72/c3/dc72c3664c49d1460912129adcabe1cc.jpg" },
   { id: 5, Name: "Nike Sportswear Shirt", Price: "653", Img: "https://i.pinimg.com/736x/1c/0a/0b/1c0a0b11d9a50b9e99274ed1316147cf.jpg" },
   { id: 6, Name: "Adidas Originals Shirt", Price: "123", Img: "https://i.pinimg.com/736x/a1/4b/ec/a14becb8468d357c784831d11cb511a0.jpg" },
   { id: 7, Name: "Uniqlo Oxford Classic Shirt", Price: "567", Img: "https://i.pinimg.com/1200x/ff/e4/e7/ffe4e7a250b46ab104de1c35892e3ee3.jpg" },
-  { id: 8, Name: "Tommy Hilfiger Striped Shirt", Price: "123", Img: "https://i.pinimg.com/736x/50/1e/31/501e31f2c87bc785e0bfab2ff9edbe06.jpg" },
+  { id: 8, Name: "Tommy Hilfiger Striped Shirt", Price: "123", Img: "https://i.pinimg.com/1200x/4e/5b/22/4e5b22d4d0e68c2570f8831993d274b9.jpg" },
   { id: 9, Name: "Ralph Lauren Polo Shirt", Price: "784", Img: "https://i.pinimg.com/736x/f4/c8/50/f4c850f09bc6bfd7c34f37acc0fa70c8.jpg" },
   { id: 10, Name: "Calvin Klein Formal Shirt", Price: "863", Img: "https://i.pinimg.com/736x/ff/23/4b/ff234bac943e7bdf2fbf617c9442dd1b.jpg" },
   { id: 11, Name: "Diesel Printed Shirt", Price: "244", Img: "https://i.pinimg.com/1200x/cc/27/7c/cc277c92016bfe94c1684ed7df53f424.jpg" },
@@ -182,7 +183,9 @@ const logoX = useTransform(
     jens, 
     setjens,
     shirt, 
-    setshirts
+    setshirts,
+    scrolled, 
+    setScrolled
   };
 
   return (

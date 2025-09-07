@@ -7,11 +7,10 @@ import ServiceTwo from "../assets/ServiceTwo.mp4";
 import ServiceThree from "../assets/ServiceThree.mp4";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
 import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
-import { div } from "framer-motion/client";
 
 function LandingPage() {
+  // Products
   const products = [
     {
       Img: "https://i.pinimg.com/736x/9d/53/e0/9d53e0dfa111c93e7a127344f3731a6b.jpg",
@@ -35,30 +34,32 @@ function LandingPage() {
     },
   ];
 
+  // Services
   const service = [
     {
       Name: "Clothing quality",
       Img: ServiceOne,
       to: "/serviceOne",
       description:
-        "At LEVEL, clothing quality means more than fabric—it’s the promise of comfort, durability, and timeless style. Each piece is crafted with premium materials and careful attention to detail",
+        "At LEVEL, clothing quality means more than fabric—it’s the promise of comfort, durability, and timeless style. Each piece is crafted with premium materials and careful attention to detail.",
     },
     {
       Name: "Sneaker Fashion",
       Img: ServiceTwo,
       to: "/serviceTwo",
       description:
-        "Sneaker fashion at LEVEL represents individuality and confidence. Designed for everyday wear yet bold enough to stand out, our sneakers combine comfort with cutting-edge style. Whether paired with jeans, joggers, or streetwear, they elevate every outfit. ",
+        "Sneaker fashion at LEVEL represents individuality and confidence. Designed for everyday wear yet bold enough to stand out, our sneakers combine comfort with cutting-edge style.",
     },
     {
       Name: "Cool Outfits",
       Img: ServiceThree,
       to: "/serviceThree",
       description:
-        "Cool outfits are all about effortless style and versatility. At LEVEL, we curate looks that adapt to every occasion—casual hangs, streetwear vibes, or sleek evenings.  comfort ",
+        "Cool outfits are all about effortless style and versatility. At LEVEL, we curate looks that adapt to every occasion—casual hangs, streetwear vibes, or sleek evenings.",
     },
   ];
 
+  // Video controls for featured video
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -154,15 +155,23 @@ function LandingPage() {
             EXPLORE THE LATEST STYLES
           </h1>
         </motion.div>
+
         <div className="mt-7 px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((item, index) => (
             <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="bg-white overflow-hidden duration-500 cursor-pointer"
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              whileTap={{
+                scale: 0.95,
+                transition: { duration: 0.1 },
+              }}
+              className="bg-white overflow-hidden cursor-pointer  "
             >
               <Link to={item.to}>
                 <img
@@ -257,6 +266,7 @@ function LandingPage() {
         </div>
       </div>
 
+      {/* Service Section */}
       <motion.div
         className="mt-10"
         initial={{ opacity: 0, y: 30 }}
@@ -271,7 +281,6 @@ function LandingPage() {
 
       <div className="mt-10 px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         {service.map((item, index) => {
-          // har video ka alag ref
           const ref = useRef(null);
           const [isPlaying, setIsPlaying] = useState(true);
           const [isMuted, setIsMuted] = useState(true);
@@ -294,7 +303,7 @@ function LandingPage() {
           return (
             <div
               key={index}
-              className="flex flex-col items-center  overflow-hidden"
+              className="flex flex-col items-center overflow-hidden"
             >
               {/* Video */}
               <div className="relative w-full h-64 md:h-80 lg:h-96">
@@ -306,7 +315,6 @@ function LandingPage() {
                   muted
                   className="w-full h-full object-cover"
                 />
-                {/* Controls */}
                 <div className="absolute top-2 right-2 flex gap-2">
                   <button
                     onClick={togglePlay}
@@ -318,19 +326,15 @@ function LandingPage() {
                     onClick={toggleMute}
                     className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-black hover:bg-gray-300"
                   >
-                    {isMuted ? (
-                      <FaVolumeMute size={12} />
-                    ) : (
-                      <FaVolumeUp size={12} />
-                    )}
+                    {isMuted ? <FaVolumeMute size={12} /> : <FaVolumeUp size={12} />}
                   </button>
                 </div>
               </div>
 
-              {/* Name as Button (video ke niche) */}
+              {/* Title & Description */}
               <Link
                 to={item.to}
-                className="mt-5 text-3xl text-black font-mono transition duration-300 "
+                className="mt-5 text-3xl text-black font-mono transition duration-300"
               >
                 {item.Name}
               </Link>
@@ -341,7 +345,6 @@ function LandingPage() {
           );
         })}
       </div>
-   
     </div>
   );
 }
