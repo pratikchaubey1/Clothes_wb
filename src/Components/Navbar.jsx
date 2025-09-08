@@ -229,7 +229,7 @@ function Navbar() {
                             animate={{ opacity: 1, y: 0 }}
                             className=" overflow-hidden bg-white"
                           >
-                            <div className="relative h-100 sm:h-60 md:h-100 w-full">
+                            <div className="relative h-100 sm:h-60 md:h-100 w-auto">
                               <img
                                 src={item.Img}
                                 alt={item.Name}

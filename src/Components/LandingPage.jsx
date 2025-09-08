@@ -251,7 +251,7 @@ function LandingPage() {
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 flex  flex-col justify-between">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 text-gray-900">
             The LEVEL Identity Series
           </h2>
