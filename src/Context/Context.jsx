@@ -1,5 +1,6 @@
 import { useScroll, useTransform } from "framer-motion";
 import React, { createContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export const ProductContext = createContext();
@@ -9,6 +10,7 @@ export const ProductProvider = ({ children }) => {
   const [isOpen, setisOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [all, setall] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -67,6 +69,10 @@ export const ProductProvider = ({ children }) => {
       transition: { delay: i * 0.1, duration: 0.3 },
     }),
   };
+
+   const filteredProducts = all.filter((item) =>
+  item.Name.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   const [Sceekers, setSceekers] = useState([
     {
@@ -589,6 +595,9 @@ export const ProductProvider = ({ children }) => {
     setScrolled,
     all,
     setall,
+    searchTerm, 
+    setSearchTerm,
+    filteredProducts
   };
 
   return (
