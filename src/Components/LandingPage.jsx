@@ -260,9 +260,13 @@ function LandingPage() {
             style becomes a canvas for authentic self-expression, blending
             fashion with personal stories.
           </p>
-          <button className="border border-black py-2 px-4 rounded hover:bg-black hover:text-white transition duration-300">
-            Keep Discovering
-          </button>
+          <div className="text-center mt-6">
+            <button className="py-2 px-4 transition duration-300 relative group">
+              Keep Discovering
+              {/* Animated line */}
+              <span className="block w-0 group-hover:w-full h-[1px] bg-black mx-auto mt-2 transition-all duration-500"></span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -326,7 +330,11 @@ function LandingPage() {
                     onClick={toggleMute}
                     className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-black hover:bg-gray-300"
                   >
-                    {isMuted ? <FaVolumeMute size={12} /> : <FaVolumeUp size={12} />}
+                    {isMuted ? (
+                      <FaVolumeMute size={12} />
+                    ) : (
+                      <FaVolumeUp size={12} />
+                    )}
                   </button>
                 </div>
               </div>

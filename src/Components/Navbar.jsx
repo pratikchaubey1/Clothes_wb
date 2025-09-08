@@ -125,142 +125,140 @@ function Navbar() {
             </button>
 
             {/* Fullscreen Search */}
-           <AnimatePresence>
-  {isSearchOpen && (
-    <motion.div
-      className="fixed inset-0 bg-white z-50 flex flex-col font-poppins overflow-y-auto"
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={overlayVariants}
-    >
-      {/* Search Input */}
-      <motion.div
-        variants={inputVariants}
-        className="flex items-center w-full border-b px-6 py-4 sticky top-0 bg-white z-50"
-      >
-        <input
-          type="text"
-          placeholder="What are you looking for?"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-1 border-b border-gray-400 px-3 py-2 text-lg focus:outline-none focus:border-blue-600"
-        />
-        <button
-          onClick={() => {
-            setIsSearchOpen(false);
-            setSearchTerm("");
-          }}
-          className="ml-4 text-gray-700 font-medium hover:text-red-600"
-        >
-          Cancel
-        </button>
-      </motion.div>
-
-      {/* Conditional Content */}
-      {searchTerm.trim() === "" ? (
-        // =========================
-        // Default Suggestions
-        // =========================
-        <div className="grid grid-cols-3 gap-8 p-8 text-gray-800">
-          {[
-            {
-              title: "TRENDING SEARCHES",
-              items: [
-                { name: "Sneakers", link: "/sneaker" },
-                { name: "Bags", link: "/bag" },
-                { name: "Shirts", link: "/BaggyShirt" },
-                { name: "Jeans", link: "/BaggyJeans" },
-              ],
-            },
-            { title: "NEW IN", items: ["Women", "Men"] },
-            {
-              title: "SUGGESTIONS",
-              items: [
-                "GG Monogram Selection",
-                "Personalization",
-                "Store Locator",
-              ],
-            },
-          ].map((section, i) => (
-            <div key={i}>
-              <h3 className="font-semibold mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.items.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    custom={index}
-                    initial="hidden"
-                    animate="visible"
-                    variants={listItemVariants}
+            <AnimatePresence>
+              {isSearchOpen && (
+                <motion.div
+                  className="fixed inset-0 bg-white z-50 flex flex-col font-poppins overflow-y-auto"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={overlayVariants}
+                >
+                  {/* Search Input */}
+                  <motion.div
+                    variants={inputVariants}
+                    className="flex items-center w-full border-b px-4 sm:px-6 py-3 sm:py-4"
                   >
-                    {section.title === "TRENDING SEARCHES" ? (
-                      <Link
-                        to={item.link}
-                        className="hover:underline"
-                        onClick={() => setIsSearchOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <a href="#" className="hover:underline">
-                        {item}
-                      </a>
-                    )}
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      ) : (
-        // =========================
-        // Search Results (Cards)
-        // =========================
-        <div className="p-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white    hover:shadow-2xl hover:scale-105 transform transition-all duration-300 overflow-hidden"
-              >
-                <div className="relative h-80 w-full">
-                  <img
-                    src={item.Img}
-                    alt={item.Name}
-                    className="w-full h-full object-cover"
-                  />
-                  <span className="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-0.5 uppercase rounded">
-                    New
-                  </span>
-                </div>
-                <div className="p-3 text-left">
-                  <h1 className="text-gray-900 text-sm font-medium">
-                    {item.Name}
-                  </h1>
-                  <h2 className="text-gray-700 text-sm font-semibold mt-1">
-                    $ {item.Price}
-                  </h2>
-                </div>
-              </motion.div>
-            ))
-          ) : (
-            <p className="col-span-full text-center text-gray-500">
-              No results found for "{searchTerm}"
-            </p>
-          )}
-        </div>
-      )}
+                    <input
+                      type="text"
+                      placeholder="What are you looking for?"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="flex-1 border-b border-gray-400 px-2 sm:px-3 py-1.5 sm:py-2 text-base sm:text-lg focus:outline-none focus:border-blue-600"
+                    />
+                    <button
+                      onClick={() => {
+                        setIsSearchOpen(false);
+                        setSearchTerm("");
+                      }}
+                      className="ml-3 sm:ml-4 text-gray-700 font-medium hover:text-red-600 text-sm sm:text-base"
+                    >
+                      Cancel
+                    </button>
+                  </motion.div>
 
-      {/* Extra bottom space for scroll */}
-      <div className="mb-20"></div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+                  {/* Conditional Content */}
+                  {searchTerm.trim() === "" ? (
+                    // =========================
+                    // Default Suggestions
+                    // =========================
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 sm:p-8 text-gray-800">
+                      {[
+                        {
+                          title: "TRENDING SEARCHES",
+                          items: [
+                            { name: "Sneakers", link: "/sneaker" },
+                            { name: "Bags", link: "/bag" },
+                            { name: "Shirts", link: "/BaggyShirt" },
+                            { name: "Jeans", link: "/BaggyJeans" },
+                          ],
+                        },
+                        { title: "NEW IN", items: ["Women", "Men"] },
+                        {
+                          title: "SUGGESTIONS",
+                          items: [
+                            "GG Monogram Selection",
+                            "Personalization",
+                            "Store Locator",
+                          ],
+                        },
+                      ].map((section, i) => (
+                        <div key={i}>
+                          <h3 className="font-semibold mb-3 sm:mb-4">
+                            {section.title}
+                          </h3>
+                          <ul className="space-y-1 sm:space-y-2">
+                            {section.items.map((item, index) => (
+                              <motion.li
+                                key={index}
+                                custom={index}
+                                initial="hidden"
+                                animate="visible"
+                                variants={listItemVariants}
+                                className="text-sm sm:text-base"
+                              >
+                                {section.title === "TRENDING SEARCHES" ? (
+                                  <Link
+                                    to={item.link}
+                                    className="hover:underline"
+                                    onClick={() => setIsSearchOpen(false)}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                ) : (
+                                  <a href="#" className="hover:underline">
+                                    {item}
+                                  </a>
+                                )}
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // =========================
+                    // Search Results (Cards)
+                    // =========================
+                    <div className="p-4 sm:p-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                      {filteredProducts.length > 0 ? (
+                        filteredProducts.map((item, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className=" overflow-hidden bg-white"
+                          >
+                            <div className="relative h-100 sm:h-60 md:h-100 w-full">
+                              <img
+                                src={item.Img}
+                                alt={item.Name}
+                                className="w-full h-full object-cover"
+                              />
+                              <span className="absolute top-2 left-2 bg-black text-white text-[8px] sm:text-[10px] px-1.5 py-0.5 uppercase rounded">
+                                New
+                              </span>
+                            </div>
+                            <div className="p-2 sm:p-3 text-left">
+                              <h1 className="text-gray-900 text-xs sm:text-sm font-medium">
+                                {item.Name}
+                              </h1>
+                              <h2 className="text-gray-700 text-xs sm:text-sm font-semibold mt-1">
+                                $ {item.Price}
+                              </h2>
+                            </div>
+                          </motion.div>
+                        ))
+                      ) : (
+                        <p className="col-span-full text-center text-gray-500 text-sm sm:text-base">
+                          No results found for "{searchTerm}"
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Menu */}
             <div>
