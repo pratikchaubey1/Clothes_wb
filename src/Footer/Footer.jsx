@@ -33,9 +33,7 @@ function Footer() {
       </h1>
 
       {/* Developer Credit */}
-      <p className="text-center bg-black  text-sm sm:text-base text-gray-600">
-        Developed by <span className="font-medium">Prab Only</span>
-      </p>
+     
     </div>
   );
 }
